@@ -4,10 +4,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      #container{
+            display: grid;
+            grid-template-columns: repeat(2,40%);
+            grid-template-rows: auto;
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+        #container>div{
+            margin-top: 30px;
+           
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        #container>div>img{
+            width: 450px;
+            height: 450px;
+        }
+    </style>
   </head>
   <body>
     <button onclick="sortltoh()">Sort By Price</button>
-    <button>Filter By Rating</button>
+    <button onclick="filterbyrating()">Filter By Rating</button>
     <div id="container"></div>
   </body>
 </html>
@@ -24,6 +48,7 @@
 
   function append(data) {
     let container = document.getElementById("container");
+    container.innerHTML = null;
 
     data.forEach((el) => {
       let div = document.createElement("div");
@@ -101,8 +126,21 @@ function savedata(e) {
     let res = await fetch(
       "http://127.0.0.1:3000/api/items/?_sort=price&_order=asc"
     );
-
     let data = await res.json();
     console.log(data);
+    append(data)
   };
+
+  let filterbyrating = async ()=>{
+
+    let res = await fetch(
+      "http://127.0.0.1:3000/api/items/?rating_gte=3"
+    );
+    let data = await res.json();
+    console.log(data);
+    append(data)
+
+  }
+
+
 </script>

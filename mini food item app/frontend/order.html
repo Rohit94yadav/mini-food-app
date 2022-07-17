@@ -4,12 +4,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+      #container{
+            display: grid;
+            grid-template-columns: repeat(2,40%);
+            grid-template-rows: auto;
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+        #container>div{
+            margin-top: 30px;
+           
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        #container>div>img{
+            width: 450px;
+            height: 450px;
+        }
+        #check{
+          display: flex;
+          justify-content: center;
+        }
+    </style>
 </head>
 <body>
     <div id="display"></div>
     <div
     id="container"></div>
-    <button><a href="./checkout.html">Checkout</a></button>
+    <div id="check">
+
+      <button ><a href="./checkout.html">Checkout</a></button>
+    </div>
 </body>
 </html>
 

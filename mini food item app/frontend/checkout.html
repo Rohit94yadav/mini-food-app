@@ -5,26 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        
+        img{
+            width: 170px;
+        }
         #main{
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+            width: 400px;
             border: 1px solid grey;
+            margin: auto;
+            justify-content: center;
+           
 
         }
-        #contailer{
+        #container{
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+            gap: 20px;
+           
         }
-        #contailer>div{
+        #line{
+            width: 400px;
+            border: 1px solid black;
+        }
+        #container>div{
             display: flex;
             flex-direction: row;
+            gap: 20px;
+        }
+        h1{
+            text-align: center;
         }
     </style>
 </head>
 <body>
+    <h1>ThankYou For Ordering</h1>
     <div id="main">
         <div id="container"> </div>
+        <div id="line"></div>
         <h3 id="ttl"></h3>
+        <h3>Order Status :-  successfull</h3>
 
     </div>
 
@@ -57,7 +78,7 @@ function append(data) {
       name.innerText = el.mealname;
 
       let price = document.createElement("h2");
-      price.innerText = el.price;
+      price.innerText = `Rs ${el.price} `;
 
 
       
@@ -83,6 +104,6 @@ function append(data) {
   }
 
  
-  document.getElementById("ttl").innerText = `Total amount to be paid on Delievery:- ${ttl}`;
+  document.getElementById("ttl").innerText = `Total amount to be paid on Delievery:- Rs ${ttl}`;
     
 </script>
